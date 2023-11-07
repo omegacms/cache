@@ -31,9 +31,9 @@ use Omega\ServiceProvider\ServiceProviderInterface;
 /**
  * Cache service provider class.
  *
- * The `CacheServiceProvider` class is responsible for providing cache-related 
+ * The `CacheServiceProvider` class is responsible for providing cache-related
  * services to the framework. It defines the available cache drivers and their
- ^ factory methods. 
+ ^ factory methods.
  *
  * @category    Omega
  * @package     Omega\Cache
@@ -46,9 +46,9 @@ use Omega\ServiceProvider\ServiceProviderInterface;
  */
 class CacheServiceProvider extends AbstractServiceProvider
 {
-    /** 
+    /**
      * @inheritdoc
-     * 
+     *
      * @return string Return the service name, which is `cache`.
      */
     protected function name() : string
@@ -57,8 +57,8 @@ class CacheServiceProvider extends AbstractServiceProvider
     }
 
     /**
-     * @inheritdoc 
-     * 
+     * @inheritdoc
+     *
      * @return mixed Return the service factory or a callback function.
      */
     protected function factory() : ServiceProviderInterface
@@ -66,11 +66,11 @@ class CacheServiceProvider extends AbstractServiceProvider
         return new CacheFactory();
     }
 
-    /** 
+    /**
      * @inheritdoc
-     * 
-     * @return array Return an associative array where keys are driver names and values are factory callbacks. 
-     */    
+     *
+     * @return array Return an associative array where keys are driver names and values are factory callbacks.
+     */
     protected function drivers() : array
     {
         return [

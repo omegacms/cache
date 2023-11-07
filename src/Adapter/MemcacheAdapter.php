@@ -26,11 +26,11 @@ use function time;
 use Memcached;
 
 /**
- * Memcache adapter class. 
- * 
- * The `MemcachedAdapter` class implements a cache adapter that uses the Memcached 
- * extension to interact with a Memcached server. It extends the AbstractCacheAdapter 
- * class and provides methods to check, retrieve, store, and manage cached data using 
+ * Memcache adapter class.
+ *
+ * The `MemcachedAdapter` class implements a cache adapter that uses the Memcached
+ * extension to interact with a Memcached server. It extends the AbstractCacheAdapter
+ * class and provides methods to check, retrieve, store, and manage cached data using
  * Memcached.
  *
  * @category    Omega
@@ -51,14 +51,14 @@ class MemcacheAdapter extends AbstractCacheAdapter
      */
     private Memcached $memcache;
 
-    /** 
-     * MemcacheAdapter class constructor. 
-     * 
-     * Initializes the MemcacheAdapter with configuration options and connects to 
-     * the Memcached server. 
-     * 
-     * @param  array $config Holds an array of configuration options. 
-     * @return void 
+    /**
+     * MemcacheAdapter class constructor.
+     *
+     * Initializes the MemcacheAdapter with configuration options and connects to
+     * the Memcached server.
+     *
+     * @param  array $config Holds an array of configuration options.
+     * @return void
      */
     public function __construct( array $config )
     {
@@ -68,23 +68,23 @@ class MemcacheAdapter extends AbstractCacheAdapter
         $this->memcache->addServer( $config[ 'host' ], $config[ 'port' ] );
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key Holds the cache key to check. 
-     * @return bool Returns true if the key exists in the cache, otherwise false. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key Holds the cache key to check.
+     * @return bool Returns true if the key exists in the cache, otherwise false.
      */
     public function has( string $key ) : bool
     {
         return $this->memcache->get( $key ) !== false;
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key     Holds the cache key to retrieve. 
-     * @param  mixed  $default Holds the default value to return if the key is not found. 
-     * @return mixed Return the cached value if found, otherwise the default value. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key     Holds the cache key to retrieve.
+     * @param  mixed  $default Holds the default value to return if the key is not found.
+     * @return mixed Return the cached value if found, otherwise the default value.
      */
     public function get( string $key, mixed $default = null ) : mixed
     {
@@ -94,13 +94,13 @@ class MemcacheAdapter extends AbstractCacheAdapter
         return $default;
     }
 
-    /** 
+    /**
      * @inheritdoc
-     * 
-     * @param  string $key     Holds the cache key to store. 
-     * @param  mixed  $value   Holds the value to store in the cache. 
-     * @param  ?int   $seconds Holds the number of seconds until the cache item expires (null for no expiration). 
-     * @return $this Return the cache adapter instance. 
+     *
+     * @param  string $key     Holds the cache key to store.
+     * @param  mixed  $value   Holds the value to store in the cache.
+     * @param  ?int   $seconds Holds the number of seconds until the cache item expires (null for no expiration).
+     * @return $this Return the cache adapter instance.
      */
     public function put( string $key, mixed $value, int $seconds = null ) : static
     {
@@ -113,11 +113,11 @@ class MemcacheAdapter extends AbstractCacheAdapter
         return $this;
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key Holds the cache key to remove. 
-     * @return $this Return the cache adapter instance. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key Holds the cache key to remove.
+     * @return $this Return the cache adapter instance.
      */
     public function forget( string $key ) : static
     {

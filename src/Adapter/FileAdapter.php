@@ -33,13 +33,13 @@ use function time;
 use function unlink;
 use Omega\Application\Application;
 
-/** 
- * File adapter class. 
- * 
- * The `FileAdapter` class implements a cache adapter that stores cached data in 
- * files. It extends the AbstractCacheAdapter class and provides methods to read, 
- * write, and manage cache data stored in files. 
- * 
+/**
+ * File adapter class.
+ *
+ * The `FileAdapter` class implements a cache adapter that stores cached data in
+ * files. It extends the AbstractCacheAdapter class and provides methods to read,
+ * write, and manage cache data stored in files.
+ *
  * @category    Omega
  * @package     Omega\Cache
  * @subpackage  Omega\Cache\Adapter
@@ -51,24 +51,24 @@ use Omega\Application\Application;
  */
 class FileAdapter extends AbstractCacheAdapter
 {
-    /** 
-     * FileAdapter class constructor. 
-     * 
-     * Initializes the FileAdapter with configuration options. 
-     * 
-     * @param  array $config Holds an array of configuration options. 
-     * @return void 
+    /**
+     * FileAdapter class constructor.
+     *
+     * Initializes the FileAdapter with configuration options.
+     *
+     * @param  array $config Holds an array of configuration options.
+     * @return void
      */
     public function __construct( array $config )
     {
         parent::__construct( $config );
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key Holds the cache key to check. 
-     * @return bool Returns true if the key exists in the cache, otherwise false. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key Holds the cache key to check.
+     * @return bool Returns true if the key exists in the cache, otherwise false.
      */
     public function has( string $key ) : bool
     {
@@ -77,12 +77,12 @@ class FileAdapter extends AbstractCacheAdapter
         return isset( $data[ 'expires' ] ) && $data[ 'expires' ] > time();
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key     Holds the cache key to retrieve. 
-     * @param  mixed  $default Holds the default value to return if the key is not found. 
-     * @return mixed Return the cached value if found, otherwise the default value. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key     Holds the cache key to retrieve.
+     * @param  mixed  $default Holds the default value to return if the key is not found.
+     * @return mixed Return the cached value if found, otherwise the default value.
      */
     public function get( string $key, mixed $default = null ) : mixed
     {
@@ -93,13 +93,13 @@ class FileAdapter extends AbstractCacheAdapter
         return $default;
     }
 
-    /** 
+    /**
      * @inheritdoc
-     * 
-     * @param  string $key     Holds the cache key to store. 
-     * @param  mixed  $value   Holds the value to store in the cache. 
-     * @param  ?int   $seconds Holds the number of seconds until the cache item expires (null for no expiration). 
-     * @return $this Return the cache adapter instance. 
+     *
+     * @param  string $key     Holds the cache key to store.
+     * @param  mixed  $value   Holds the value to store in the cache.
+     * @param  ?int   $seconds Holds the number of seconds until the cache item expires (null for no expiration).
+     * @return $this Return the cache adapter instance.
      */
     public function put( string $key, mixed $value, ?int $seconds = null ) : static
     {
@@ -115,11 +115,11 @@ class FileAdapter extends AbstractCacheAdapter
         return $this->write( $key, $data );
     }
 
-    /** 
-     * @inheritdoc 
-     * 
-     * @param  string $key Holds the cache key to remove. 
-     * @return $this Return the cache adapter instance. 
+    /**
+     * @inheritdoc
+     *
+     * @param  string $key Holds the cache key to remove.
+     * @return $this Return the cache adapter instance.
      */
     public function forget( string $key ) : static
     {
@@ -155,11 +155,11 @@ class FileAdapter extends AbstractCacheAdapter
         return $this;
     }
 
-    /** 
-     * Get the cache path for a specific key. 
-     * 
-     * @param  string $key Holds the cache key. 
-     * @return string Return the cache path for the specified key. 
+    /**
+     * Get the cache path for a specific key.
+     *
+     * @param  string $key Holds the cache key.
+     * @return string Return the cache path for the specified key.
      */
     private function getPath( string $key ) : string
     {
@@ -171,10 +171,10 @@ class FileAdapter extends AbstractCacheAdapter
     }
 
 
-    /** 
-     * Get the cache base directory. 
-     * 
-     * @return string Return the base directory for storing cache files. 
+    /**
+     * Get the cache base directory.
+     *
+     * @return string Return the base directory for storing cache files.
      */
     private function getBase() : string
     {
@@ -184,11 +184,11 @@ class FileAdapter extends AbstractCacheAdapter
         return "{$base}{$separator}storage{$separator}cache";
     }
 
-    /** 
-     * Read the cache data from a file. 
-     * 
-     * @param  string $key Holds the cache key. 
-     * @return mixed|array Return the cached data, or an empty array if not found. 
+    /**
+     * Read the cache data from a file.
+     *
+     * @param  string $key Holds the cache key.
+     * @return mixed|array Return the cached data, or an empty array if not found.
      */
     private function read( string $key ) : mixed
     {
@@ -201,12 +201,12 @@ class FileAdapter extends AbstractCacheAdapter
         return json_decode( file_get_contents( $path ), true );
     }
 
-    /** 
-     * Write the cache data to a file. 
-     * 
-     * @param  string $key   Holds the cache key. 
-     * @param  mixed  $value Holds the value to cache. 
-     * @return $this Return the cache adapter instance. 
+    /**
+     * Write the cache data to a file.
+     *
+     * @param  string $key   Holds the cache key.
+     * @param  mixed  $value Holds the value to cache.
+     * @return $this Return the cache adapter instance.
      */
     private function write( string $key, mixed $value ) : static
     {

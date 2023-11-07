@@ -26,8 +26,8 @@ use RuntimeException;
 /**
  * Unsupported driver exception class.
  *
- * The `UnsupportedAdapterException` class is thrown when an unsupported cache 
- * adapter type is encountered. It typically indicates that the requested cache 
+ * The `UnsupportedAdapterException` class is thrown when an unsupported cache
+ * adapter type is encountered. It typically indicates that the requested cache
  * driver is not recognized or supported by the framework.
  *
  * @category    Omega
