@@ -33,7 +33,7 @@ use Omega\ServiceProvider\ServiceProviderInterface;
  *
  * The `CacheServiceProvider` class is responsible for providing cache-related
  * services to the framework. It defines the available cache drivers and their
- ^ factory methods.
+ * factory methods.
  *
  * @category    Omega
  * @package     Omega\Cache
