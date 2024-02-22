@@ -17,7 +17,7 @@
     "php": ">=8.2",
     "ext-memcached": "*",
     "omegacms/application": "^1.0.0",
-    "omegacms/serviceprovider": "^1.0.0"
+    "omegacms/service-provider": "^1.0.0"
   },
   "require-dev": {
     "omegacms/testing": "^1.0.0",
