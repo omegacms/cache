@@ -25,8 +25,8 @@ use Omega\Cache\CacheFactory;
 use Omega\Cache\Adapter\FileAdapter;
 use Omega\Cache\Adapter\MemcacheAdapter;
 use Omega\Cache\Adapter\MemoryAdapter;
-use Omega\ServiceProvider\AbstractServiceProvider;
-use Omega\ServiceProvider\ServiceProviderInterface;
+use Omega\Container\ServiceProvider\AbstractServiceProvider;
+use Omega\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
  * Cache service provider class.

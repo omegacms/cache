@@ -24,7 +24,7 @@ namespace Omega\Cache;
 use Closure;
 use Omega\Cache\Adapter\CacheAdapterInterface;
 use Omega\Cache\Exceptions\UnsupportedAdapterException;
-use Omega\ServiceProvider\ServiceProviderInterface;
+use Omega\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
  * Cache factory class.
