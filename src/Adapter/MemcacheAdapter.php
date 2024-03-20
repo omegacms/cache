@@ -24,6 +24,7 @@ namespace Omega\Cache\Adapter;
 use function is_int;
 use function time;
 use Memcached;
+use Omega\Cache\Exceptions\UnsupportedAdapterException;
 
 /**
  * Memcache adapter class.
@@ -59,9 +60,18 @@ class MemcacheAdapter extends AbstractCacheAdapter
      *
      * @param  array $config Holds an array of configuration options.
      * @return void
+     * @throws UnsupportedAdapterException if the Memcached extension is not enabled or installed, preventing the caching functionality from being used.
      */
     public function __construct( array $config )
     {
+        if ( ! extension_loaded( 'memcached' ) ) {
+            throw new UnsupportedAdapterException(
+                'Memcached extension is not enabled. Please make sure to install the Memcached extension'
+              . 'to enable caching functionality and improve performance. You can install it using your system\'s package manager or '
+              . 'by following the instructions provided in the Memcached documentation.'
+            );
+        }
+
         parent::__construct( $config );
 
         $this->memcache = new Memcached();
