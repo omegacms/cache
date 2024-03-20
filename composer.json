@@ -2,7 +2,11 @@
   "name": "omegacms/cache",
   "type": "package",
   "description": "Omega CMS Cache Package",
-  "keywords": [ "omegacms", "framework", "cache"],
+  "keywords": [
+    "omegacms",
+    "framework",
+    "cache"
+  ],
   "homepage": "https://omegacms.github.io",
   "license": "GPL-3.0",
   "authors": [
@@ -15,7 +19,6 @@
   ],
   "require": {
     "php": ">=8.2",
-    "ext-memcached": "*",
     "omegacms/application": "^1.0.0",
     "omegacms/container": "^1.0.0"
   },
@@ -23,6 +26,9 @@
     "omegacms/testing": "^1.0.0",
     "phpunit/phpunit": "^9.5",
     "symfony/process": "^5.2"
+  },
+  "suggest": {
+    "ext-memcached": "Enables caching with Memcached for increased performance."
   },
   "autoload": {
     "psr-4": {
