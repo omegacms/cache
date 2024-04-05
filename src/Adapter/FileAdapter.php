@@ -178,10 +178,10 @@ class FileAdapter extends AbstractCacheAdapter
      */
     private function getBase() : string
     {
-        $base = Application::getInstance()->resolve( 'paths.base' );
-        $separator = DIRECTORY_SEPARATOR;
+        //$base      = $this->config[ 'file' ];
+        //$separator = DIRECTORY_SEPARATOR;
 
-        return "{$base}{$separator}storage{$separator}cache";
+        return $this->config[ 'path' ];
     }
 
     /**
