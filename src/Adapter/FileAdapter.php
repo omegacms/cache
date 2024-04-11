@@ -142,9 +142,7 @@ class FileAdapter extends AbstractCacheAdapter
     public function flush() : static
     {
         $this->cached = [];
-        $base         = $this->getBase();
-        $separator    = DIRECTORY_SEPARATOR;
-        $files        = glob( "{$base}{$separator}*.json" );
+        $files        = glob( $this->getBase() . DIRECTORY_SEPARATOR . '*.json' );
 
         foreach ( $files as $file ) {
             if ( is_file( $file ) ) {
@@ -163,11 +161,7 @@ class FileAdapter extends AbstractCacheAdapter
      */
     private function getPath( string $key ) : string
     {
-        $base      = $this->getBase();
-        $separator = DIRECTORY_SEPARATOR;
-        $key       = sha1( $key );
-
-        return "{$base}{$separator}{$key}.json";
+        return $this->getBase() . DIRECTORY_SEPARATOR . sha1( $key ) . '.json';
     }
 
 
@@ -178,9 +172,6 @@ class FileAdapter extends AbstractCacheAdapter
      */
     private function getBase() : string
     {
-        //$base      = $this->config[ 'file' ];
-        //$separator = DIRECTORY_SEPARATOR;
-
         return $this->config[ 'path' ];
     }
 
