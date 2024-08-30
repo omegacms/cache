@@ -59,7 +59,7 @@ class CacheServiceProvider extends AbstractServiceProvider
     /**
      * @inheritdoc
      *
-     * @return mixed Return the service factory or a callback function.
+     * @return ServiceProviderInterface Return an instance of ServiceProviderInterface.
      */
     protected function factory() : ServiceProviderInterface
     {

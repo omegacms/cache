@@ -41,7 +41,7 @@ abstract class AbstractCacheAdapter implements CacheAdapterInterface
      *
      * @var array $config Holds an array of configuration options.
      */
-    public array $config;
+    public array $config = [];
 
     /**
      * Cached data storage.
