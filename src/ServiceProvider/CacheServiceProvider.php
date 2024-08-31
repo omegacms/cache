@@ -21,6 +21,7 @@ namespace Omega\Cache\ServiceProvider;
 /**
  * @use
  */
+use Closure;
 use Omega\Cache\CacheFactory;
 use Omega\Cache\Adapter\FileAdapter;
 use Omega\Cache\Adapter\MemcacheAdapter;
@@ -69,7 +70,7 @@ class CacheServiceProvider extends AbstractServiceProvider
     /**
      * @inheritdoc
      *
-     * @return array Return an associative array where keys are driver names and values are factory callbacks.
+     * @return array<string, Closure> Return an associative array where keys are driver names and values are factory callbacks.
      */
     protected function drivers() : array
     {
