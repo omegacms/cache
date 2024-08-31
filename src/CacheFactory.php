@@ -67,7 +67,7 @@ class CacheFactory implements ServiceProviderInterface
     /**
      * @inheritdoc
      *
-     * @param  array $config Holds the configuration options, including the `type` to specify the driver.
+     * @param  array<string, mixed> $config Holds the configuration options, including the `type` to specify the driver.
      * @return CacheAdapterInterface An instance of the configured cache driver.
      * @throws UnsupportedAdapterException if the driver type is not defined or unrecognised.
      */
