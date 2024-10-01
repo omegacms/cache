@@ -23,7 +23,7 @@ namespace Omega\Cache\ServiceProvider;
  */
 use Omega\Application\Application;
 use Omega\Cache\Factory\CacheFactory;
-use Omega\Container\ServiceProviderInterface;
+use Omega\Container\ServiceProvider\ServiceProviderInterface;
 use Omega\Support\Facades\Config;
 
 /**

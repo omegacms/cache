@@ -27,7 +27,6 @@ use Omega\Cache\Adapter\FileAdapter;
 use Omega\Cache\Adapter\MemcacheAdapter;
 use Omega\Cache\Adapter\MemoryAdapter;
 use Omega\Cache\Exception\UnsupportedAdapterException;
-
 /**
  * Cache factory class.
  *
