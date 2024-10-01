@@ -31,7 +31,6 @@ use function is_file;
 use function sha1;
 use function time;
 use function unlink;
-use Omega\Application\Application;
 
 /**
  * File adapter class.
@@ -41,8 +40,8 @@ use Omega\Application\Application;
  * write, and manage cache data stored in files.
  *
  * @category    Omega
- * @package     Omega\Cache
- * @subpackage  Omega\Cache\Adapter
+ * @package     Cache
+ * @subpackage  Adapter
  * @link        https://omegacms.github.io
  * @author      Adriano Giovannini <omegacms@outlook.com>
  * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegacms.github.io)

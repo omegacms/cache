@@ -24,7 +24,7 @@ namespace Omega\Cache\Adapter;
 use function is_int;
 use function time;
 use Memcached;
-use Omega\Cache\Exceptions\UnsupportedAdapterException;
+use Omega\Cache\Exception\UnsupportedAdapterException;
 
 /**
  * Memcache adapter class.
@@ -35,8 +35,8 @@ use Omega\Cache\Exceptions\UnsupportedAdapterException;
  * Memcached.
  *
  * @category    Omega
- * @package     Omega\Cache
- * @subpackage  Omega\Cache\Adapter
+ * @package     Cache
+ * @subpackage  Adapter
  * @link        https://omegacms.github.io
  * @author      Adriano Giovannini <omegacms@outlook.com>
  * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegacms.github.io)

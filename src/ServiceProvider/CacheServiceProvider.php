@@ -21,13 +21,10 @@ namespace Omega\Cache\ServiceProvider;
 /**
  * @use
  */
-use Closure;
-use Omega\Cache\CacheFactory;
-use Omega\Cache\Adapter\FileAdapter;
-use Omega\Cache\Adapter\MemcacheAdapter;
-use Omega\Cache\Adapter\MemoryAdapter;
-use Omega\Container\ServiceProvider\AbstractServiceProvider;
-use Omega\Container\ServiceProvider\ServiceProviderInterface;
+use Omega\Application\Application;
+use Omega\Cache\Factory\CacheFactory;
+use Omega\Container\ServiceProviderInterface;
+use Omega\Support\Facades\Config;
 
 /**
  * Cache service provider class.
@@ -37,53 +34,29 @@ use Omega\Container\ServiceProvider\ServiceProviderInterface;
  * factory methods.
  *
  * @category    Omega
- * @package     Omega\Cache
- * @subpackage  Omega\Cache\ServiceProvider
+ * @package     Cache
+ * @subpackage  ServiceProvider
  * @link        https://omegacms.github.io
  * @author      Adriano Giovannini <omegacms@outlook.com>
  * @copyright   Copyright (c) 2024 Adriano Giovannini. (https://omegacms.github.io)
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
  * @version     1.0.0
  */
-class CacheServiceProvider extends AbstractServiceProvider
+class CacheServiceProvider implements ServiceProviderInterface
 {
     /**
      * @inheritdoc
-     *
-     * @return string Return the service name, which is `cache`.
+     * 
+     * @param  Application $application Holds the main application container to which services are bound.
+     * @return void This method does not return a value.
      */
-    protected function name() : string
+    public function bind( Application $application ) : void
     {
-        return 'cache';
-    }
+        $application->alias( 'cache', function () {
+            $config  = Config::get( 'cache' );
+            $default = $config[ 'default' ];
 
-    /**
-     * @inheritdoc
-     *
-     * @return ServiceProviderInterface Return an instance of ServiceProviderInterface.
-     */
-    protected function factory() : ServiceProviderInterface
-    {
-        return new CacheFactory();
-    }
-
-    /**
-     * @inheritdoc
-     *
-     * @return array<string, Closure> Return an associative array where keys are driver names and values are factory callbacks.
-     */
-    protected function drivers() : array
-    {
-        return [
-            'file'     => function ( $config ) {
-                return new FileAdapter( $config );
-            },
-            'memcache' => function ( $config ) {
-                return new MemcacheAdapter( $config );
-            },
-            'memory'   => function ( $config ) {
-                return new MemoryAdapter( $config );
-            },
-        ];
+            return ( new CacheFactory())->create( $config[ $default ] );
+        });
     }
 }
